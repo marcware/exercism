@@ -1,6 +1,9 @@
 #Skeleton kata php docker
 Configuración básica para realizar alguna kata en PHP.
 
+
+
+
 ##Comandos para la configuración
 ```
 $ docker-compose up
