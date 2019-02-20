@@ -7,5 +7,11 @@
 
 function distance($a, $b)
 {
-    return 0;
+    if ($a === $b) {
+        $difference = 0;
+    } else {
+        $difference = 1;
+    }
+
+    return $difference;
 }
