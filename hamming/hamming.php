@@ -5,28 +5,42 @@
 // convenience to get you started writing code faster.
 //
 
-function distance($a, $b)
+const FIRST = 0;
+
+function distance($DNAStrandOne, $DNAStrandTwo)
 {
 
+    $splitDNAOne = str_split($DNAStrandOne);
+    $totalNucleotidesStrandOne = count($splitDNAOne);
 
-    $valueInArrayA = str_split($a);
-    $totalValueOfA = count($valueInArrayA);
+    $splitDNATwo = str_split($DNAStrandTwo);
+    $totalNucleotidesStandTwo = count($splitDNATwo);
 
-    $valueInArrayB = str_split($b);
-    $totalValueOfB = count($valueInArrayB);
-
-    if($totalValueOfB !== $totalValueOfA){
+    if($totalNucleotidesStandTwo !== $totalNucleotidesStrandOne){
         throw new InvalidArgumentException('DNA strands must be of equal length.');
     }
 
+    $differenceNucleotidesStand = compareStrandOfDNA($totalNucleotidesStrandOne, $splitDNAOne, $splitDNATwo);
 
-    $difference = 0;
-    for ($i = 0; $i < $totalValueOfA; $i++) {
-        if ($valueInArrayA[$i] === $valueInArrayB[$i]) {
+    return $differenceNucleotidesStand;
+}
+
+/**
+ * @param int $totalNucleotidesStrandOne
+ * @param array $splitDNAOne
+ * @param array $splitDNATwo
+ * @return int
+ */
+function compareStrandOfDNA(int $totalNucleotidesStrandOne, array $splitDNAOne, array $splitDNATwo): int
+{
+    $differenceNucleotidesStand = 0;
+
+    for ($nucleotide = FIRST; $nucleotide < $totalNucleotidesStrandOne; $nucleotide++) {
+        if ($splitDNAOne[$nucleotide] === $splitDNATwo[$nucleotide]) {
             continue;
         }
-        $difference++;
+        $differenceNucleotidesStand++;
 
     }
-    return $difference;
+    return $differenceNucleotidesStand;
 }
