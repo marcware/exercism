@@ -7,11 +7,26 @@
 
 function distance($a, $b)
 {
-    if ($a === $b) {
-        $difference = 0;
-    } else {
-        $difference = 1;
+
+
+    $valueInArrayA = str_split($a);
+    $totalValueOfA = count($valueInArrayA);
+
+    $valueInArrayB = str_split($b);
+    $totalValueOfB = count($valueInArrayB);
+
+    if($totalValueOfB !== $totalValueOfA){
+        throw new InvalidArgumentException('DNA strands must be of equal length.');
     }
 
+
+    $difference = 0;
+    for ($i = 0; $i < $totalValueOfA; $i++) {
+        if ($valueInArrayA[$i] === $valueInArrayB[$i]) {
+            continue;
+        }
+        $difference++;
+
+    }
     return $difference;
 }
