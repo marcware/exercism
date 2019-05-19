@@ -12,6 +12,9 @@ class RomanTest extends PHPUnit\Framework\TestCase
         $this->assertSame('I', toRoman(1));
     }
 
+    /**
+     * @group runtest
+     */
     public function test2()
     {
         $this->assertSame('II', toRoman(2));
