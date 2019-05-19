@@ -4,6 +4,9 @@ require_once "roman-numerals.php";
 
 class RomanTest extends PHPUnit\Framework\TestCase
 {
+    /**
+     * @group runtest
+     */
     public function test1()
     {
         $this->assertSame('I', toRoman(1));
