@@ -2,5 +2,12 @@
 
 function toRoman($arabic)
 {
-    return 'I';
+    $roman = null;
+
+    if ($arabic === 1) {
+        $roman = 'I';
+    } else if (2) {
+        $roman = 'II';
+    }
+    return $roman;
 }
