@@ -6,7 +6,7 @@ function toRoman($arabic)
 
     if ($arabic === 1) {
         $roman = 'I';
-    } else if (2) {
+    } else if ($arabic === 2) {
         $roman = 'II';
     }
     return $roman;
