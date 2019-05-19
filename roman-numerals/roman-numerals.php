@@ -1,6 +1,6 @@
 <?php
 
-function toRoman()
+function toRoman($arabic)
 {
-
+    return 'I';
 }
