@@ -1,0 +1,4 @@
+vendor/
+.exercism/
+.idea/
+composer.phar
