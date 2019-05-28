@@ -1,20 +1,29 @@
 <?php
 
-function toRoman($arabic)
+function toRoman($number)
 {
-    $roman = '';
-    if ($arabic === 4) {
-        $roman = 'IV';
-    } else if ($arabic === 5) {
-        $roman = 'V';
-    } else if ($arabic === 6) {
-        $roman = 'VI';
-    } else {
-        for ($i = 0; $i < $arabic; $i++) {
-            $roman = $roman . 'I';
+
+    $numeral = '';
+    $specialCases = [
+        1000    => "M",
+        900     => "CM",
+        500     => "D",
+        400     => "CD",
+        100     => "C",
+        90      => "XC",
+        50      => "L",
+        40      => "XL",
+        10      => "X",
+        9       => "IX",
+        5       => "V",
+        4       => "IV",
+        1       => "I"
+    ];
+    foreach ($specialCases as $input => $output) {
+        while ($number >= $input) {
+            $numeral .= $output;
+            $number -= $input;
         }
     }
-
-
-    return $roman;
+    return $numeral;
 }
