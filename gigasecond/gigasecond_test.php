@@ -12,6 +12,9 @@ class GigasecondTest extends PHPUnit\Framework\TestCase
         return $date;
     }
 
+    /**
+     * @group runtest
+     */
     public function testDate1()
     {
         $date = GigasecondTest::dateSetup("2011-04-25");
