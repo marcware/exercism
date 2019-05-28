@@ -1,7 +1,10 @@
 <?php
 
+const GIGA_SECOND = 'PT1000000000S';
 
-function from($date)
+function from(DateTime $date)
 {
-    return new DateTime("2043-01-01 01:46:40");
+    $dateClone = clone $date;
+    return $dateClone->add(new DateInterval(GIGA_SECOND));
+
 }
