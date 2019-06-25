@@ -32,6 +32,7 @@ class BobTest extends PHPUnit\Framework\TestCase
 
     /**
      * @group runtestbob
+     * Is shouting I am put excalmetion
      */
     public function testShoutingGibberish()
     {
@@ -46,6 +47,9 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Sure.", $this->bob->respondTo("Does this cryogenic chamber make me look fat?"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testAskingANumericQuestion()
     {
         $this->assertEquals("Sure.", $this->bob->respondTo("You are, what, like 15?"));
