@@ -55,6 +55,9 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Sure.", $this->bob->respondTo("You are, what, like 15?"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testAskingGibberish()
     {
         $this->assertEquals("Sure.", $this->bob->respondTo("fffbbcbeab?"));
