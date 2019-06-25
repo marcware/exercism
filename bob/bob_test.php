@@ -30,6 +30,9 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("WATCH OUT!"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testShoutingGibberish()
     {
         $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("FCECDFCAAB"));
