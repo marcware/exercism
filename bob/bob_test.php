@@ -50,6 +50,7 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Sure.", $this->bob->respondTo("fffbbcbeab?"));
     }
 
+    /** @group runtestbob */
 
     public function testTalkingForcefully()
     {
