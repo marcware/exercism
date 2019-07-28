@@ -14,22 +14,31 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->bob = new Bob;
     }
 
-    /** @group runtestbob  */
+    /** @group runtestbob */
     public function testStatingSomething()
     {
-        $this->assertEquals("Whatever.", $this->bob->respondTo("Tom-ay-to, tom-aaaah-to."));
+        $this->assertEquals(
+            "Whatever.",
+            $this->bob->respondTo("Tom-ay-to, tom-aaaah-to.")
+        );
     }
 
     /** @group runtestbob */
     public function testShouting()
     {
-        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("WATCH OUT!"));
+        $this->assertEquals(
+            "Whoa, chill out!",
+            $this->bob->respondTo("WATCH OUT!")
+        );
     }
 
     /** @group runtestbob */
     public function testShoutingGibberish()
     {
-        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("FCECDFCAAB"));
+        $this->assertEquals(
+            "Whoa, chill out!",
+            $this->bob->respondTo("FCECDFCAAB")
+        );
     }
 
     /** @group runtestbob */
@@ -51,17 +60,21 @@ class BobTest extends PHPUnit\Framework\TestCase
     }
 
     /** @group runtestbob */
-
     public function testTalkingForcefully()
     {
         $this->assertEquals("Whatever.", $this->bob->respondTo("Let's go make out behind the gym!"));
     }
 
+    /** @group runtestbob */
     public function testUsingAcronymsInRegularSpeech()
     {
-        $this->assertEquals("Whatever.", $this->bob->respondTo("It's OK if you don't want to go to the DMV."));
+        $this->assertEquals(
+            "Whatever.",
+            $this->bob->respondTo("It's OK if you don't want to go to the DMV.")
+        );
     }
 
+    /** @group runtestbob */
     public function testForcefulQuestion()
     {
         $this->assertEquals(
@@ -73,36 +86,61 @@ class BobTest extends PHPUnit\Framework\TestCase
     /** @group runtestbob */
     public function testShoutingNumbers()
     {
-        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("1, 2, 3 GO!"));
+        $this->assertEquals(
+            "Whoa, chill out!",
+            $this->bob->respondTo("1, 2, 3 GO!")
+        );
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testOnlyNumbers()
     {
-        $this->assertEquals("Whatever.", $this->bob->respondTo("1, 2, 3"));
+        $this->assertEquals(
+            "Whatever.",
+            $this->bob->respondTo("1, 2, 3")
+        );
     }
 
     /** @group runtestbob */
     public function testQuestionWithOnlyNumbers()
     {
-        $this->assertEquals("Sure.", $this->bob->respondTo("4?"));
+        $this->assertEquals(
+            "Sure.",
+            $this->bob->respondTo("4?")
+        );
     }
 
     /** @group runtestbob */
     public function testShoutingWithSpecialCharacters()
     {
-        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
+        $this->assertEquals(
+            "Whoa, chill out!",
+            $this->bob->respondTo("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
+        );
     }
 
     /** @group runtestbob */
     public function testShoutingWithNoExclamationMark()
     {
-        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("I HATE YOU"));
+        $this->assertEquals(
+            "Whoa, chill out!",
+            $this->bob->respondTo("I HATE YOU")
+        );
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testStatementContainingQuestionMark()
     {
-        $this->assertEquals("Whatever.", $this->bob->respondTo("Ending with ? means a question."));
+        $this->assertEquals(
+            "Whatever.",
+            $this->bob->respondTo("Ending with ? means a question.")
+        );
     }
+
     /**
      * @group runtestbob
      */
@@ -119,26 +157,41 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Sure.", $this->bob->respondTo("Wait! Hang on. Are you going to be OK?"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testSilence()
     {
         $this->assertEquals("Fine. Be that way!", $this->bob->respondTo(""));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testProlongedSilence()
     {
         $this->assertEquals("Fine. Be that way!", $this->bob->respondTo("         "));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testAlternateSilence()
     {
         $this->assertEquals("Fine. Be that way!", $this->bob->respondTo("\t\t\t\t\t\t\t\t\t\t"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testMultipleLineQuestion()
     {
         $this->assertEquals("Whatever.", $this->bob->respondTo("\nDoes this cryogenic chamber make me look fat?\nno"));
     }
 
+    /**
+     * @group runtestbob
+     */
     public function testStartingWithWhitespace()
     {
         $this->assertEquals("Whatever.", $this->bob->respondTo("        hmmmmmmm..."));
@@ -153,23 +206,36 @@ class BobTest extends PHPUnit\Framework\TestCase
     }
 
 
+    /**
+     * @group runtestbob
+     */
     public function testNonQuestionEndingWithWhitespace()
     {
         $this->assertEquals("Whatever.", $this->bob->respondTo("This is a statement ending with whitespace      "));
     }
 
-//    public function testOtherWhitespace()
-//    {
-//        $this->assertEquals("Fine. Be that way!", $this->bob->respondTo("\n\r \t\u{000b}\u{00a0}\u{2002}"));
-//    }
-//
-//    public function testShoutingWithUmlauts()
-//    {
-//        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ÜMLÄÜTS!"));
-//    }
-//
-//    public function testCalmlySpeakingWithUmlauts()
-//    {
-//        $this->assertEquals("Whatever.", $this->bob->respondTo("ÜMLäÜTS!"));
-//    }
+    /**
+     * @group runtestbob
+     */
+    public function testOtherWhitespace()
+    {
+        $this->assertEquals("Fine. Be that way!", $this->bob->respondTo("\n\r \t\u{000b}\u{00a0}\u{2002}"));
+    }
+
+    /**
+     * @group runtestbob
+     */
+    public function testShoutingWithUmlauts()
+    {
+        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ÜMLÄÜTS!"));
+    }
+
+
+    public function testCalmlySpeakingWithUmlauts()
+    {
+        $this->assertEquals(
+            "Whatever.",
+            $this->bob->respondTo("ÜMLäÜTS!")
+        );
+    }
 }
